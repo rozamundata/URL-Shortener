@@ -1,0 +1,16 @@
+import hashlib
+
+def shorten_url(long_url):
+    # Generate MD5 hash of the long URL
+    hash_object = hashlib.md5(long_url.encode())
+    hash_digest = hash_object.hexdigest()
+
+    # Take the first 8 characters of the hash as the shortened URL
+    shortened_url = hash_digest[:8]
+
+    return shortened_url
+
+# Example usage
+long_url = "https://www.example.com/article/how-to-build-a-url-shortener"
+short_url = shorten_url(long_url)
+print("Short URL:", short_url)
